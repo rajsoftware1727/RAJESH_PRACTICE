@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="crossBrowserWithParallel" parallel="methods" thread-count="2">
+	 <test name="crossBrowserEdge">
+		 <parameter name="bname" value="Edge"></parameter>
+		 <classes>
+			 <class name="PRACTICE.ParameterDemoParallel">
+ 			 </class>
+		 </classes>
+	</test>
+	 
+	  <test name="crossBrowserFirefox">
+		 <parameter name="bname" value="Fire"></parameter>
+		 <classes>
+			 <class name="PRACTICE.ParameterDemoParallel">
+ 			 </class>
+		 </classes>
+	 </test>
+  
+  
+   
+</suite> <!-- Suite -->
