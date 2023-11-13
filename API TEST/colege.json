@@ -1,0 +1,13 @@
+{
+"college":[
+      {
+           "name":"KKK"
+           "seat":"30"
+     },
+
+     {
+           "name":"RRR"
+           "seat":"40"
+     }
+         ]
+}

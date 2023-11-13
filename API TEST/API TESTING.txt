@@ -1,0 +1,233 @@
+API TESTING
+------------
+
+API is a application programming interface , it is interface between the two appliocations 
+
+for example make my trip front end we are accessing the application send the request but internally they send the request to lot of booking flight websites data base through api's so their companies they provide own api.
+
+types
+-----
+1.SOAP------very old technology----internally used xml
+2.REST-------new technology
+
+once api is created and tested make it available at internet access by public it is called as webservice
+
+you use any webapplication all are comes under any of the below methods
+
+REST API METHODS
+----------------
+GET-----just get the data 
+POST----create the data 
+PUT-----update the data
+DELETE----delete the data
+PATCH------update the data
+
+Http Vs Https
+------------
+http-----send the data from client to server throughout the network original data is transferred
+https-----original data is encrypted throughout the network so more secure
+
+https://www.google.com//DATA
+
+http----protocol
+gooogle.com------domain or scheme
+rest of them called path and data called URN uniform resource name
+
+PAYLOAD
+---------
+
+i want book a flight with some data called request payload
+
+server send the response with some data called response payload
+
+URL nnd URI are same some people consider without http in url remaining are URI
+
+END POINT
+---------
+in url after the host what present that is called end point
+
+
+create our own API
+-----------------
+need softwares 
+node js
+-------
+npm---it is defaultly attach with node js
+
+download and install and check cmd type node --version, npm --version
+
+install json server
+-------------------
+npm install -g json-server  type in cmd ----it automatically install json server
+
+next create backend data because if you send any api request like get post it will work when data available in background so first create backend data by json.
+
+goto directory where json data available goto directory in cmd then type json-server student.json
+
+ok successfully created own api
+
+after sending api request what you need to validate
+---------------------------------------------------
+response code
+response data
+body
+header
+file size
+fields in data body
+
+
+json
+-----
+java script object notation
+
+it is used to communicate between client and server
+
+json ---media type is application/json
+
+json data types
+----------------
+String 
+Number
+Boolean
+Object
+
+string
+-------
+
+{ "name":"raj" }
+
+Number
+-------
+number is an integer or float
+
+{ "age":20 }
+
+Object
+-------
+{ "employee":{
+"name":"raj","age":32,"phone":[123456]
+}
+}
+
+student data
+-------------
+{"student":[ {"id":"1","name":"raj","age":"32"
+}
+
+{"id":"2","name":"raj1","age":"3"
+}
+]
+}
+
+"student":[1,2,3]-------student array numeric data type
+
+but above type is object array
+
+student[0].id-----represents----first id in students data
+
+java path finder
+
+RESPONSE VALIDATION
+-------------------
+1.cokies
+2.response code
+3.response data
+
+writing test cases manually-----use chai framework like testng
+
+writing postman test function in two ways
+1.normal function
+2.arrowmark fucntion
+
+normal
+------
+create object of postman----pm
+
+pm.test("create test",function()
+     {
+        //assertion;
+}
+
+arrowfunction
+-------------
+
+pm.test("create test",() =>
+     {
+        //assertion;
+}
+
+);
+
+
+check status code
+-------------------
+
+pm.test("status code is 200",() =>
+{
+pm.response.to.have.status(200);
+});
+
+if sometime response code is may have 201 ,202 then use
+
+pm.test("status code anything",() =>
+{pm.expect(pm.response.code).to.be.oneof([201,202]);
+});
+
+status test tested
+-------------------
+
+pm.test("status text",() =>
+{
+  pm.response.to.have.status("created");
+});
+
+in validation content type is most important to validate
+----------------------------------------------------------
+
+verify header part
+-------------------
+
+pm.test("content type header is present",() =>
+{
+  pm.response.to.have.header("Content-Type");
+}
+);
+
+next verify header value
+------------------------
+pm.test("verify content value",() =>
+{
+  pm.expect(pm.headers.get("Content-Type")).to.eql('text/html; charset=ISO-8859-1');
+}
+);
+
+
+TESTING COOKIES
+----------------
+
+pm.test("cookies 'AEC' is present",() =>
+{
+   pm.expect(pm.cookies.has("AEC")).to.be.true;
+});
+
+test cookie value---particular cookie
+-------------------------------------
+
+pm.test("cookies language value comapare",() =>
+{
+   pm.expect(pm.cookies.get("AEC").to.eql("Ackid1Q3RAJX7Pqura3YC9esuTBLGDpqDDwYkXf96uPE5EUAJOSRCzfs7Q");
+});
+
+TESTING RESPONSE TIME
+----------------------
+
+TESTING RESPONSE BODY
+----------------------
+it is little complex
+
+assert value type
+
+
+
+
+
